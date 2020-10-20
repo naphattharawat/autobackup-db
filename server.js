@@ -21,7 +21,7 @@ async function getConnection() {
 
 
 
-cron.schedule('* 23 * * *', function () {
+cron.schedule('* 0 * * *', function () {
     // วิ นาที ชมโมง วัน เดือน วันใน7วัน
     let dir = './backup';
     fse.ensureDirSync(dir)
