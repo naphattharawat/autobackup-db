@@ -39,7 +39,7 @@ cron.schedule('* 23 * * *', function () {
                 shelljs.exit(1);
             } else {
                 shelljs.echo(`Ok starting backup ${r.dbName}`);
-                let cmd = `mysqldump --host=${r.dbHost} --port=3306 --add-drop-table ${r.dbName} --user=${r.dbUser} --password=${r.dbPassword} > ${filepath} `
+                let cmd = `mysqldump --host=${r.dbHost} --port=3306  --force --routines --add-drop-table ${r.dbName} --user=${r.dbUser} --password=${r.dbPassword} > ${filepath} `
                 shelljs.exec(cmd, async (code, stdout, stderr) => {
                     if (code !== 0) {
                         shelljs.echo(`${dirBackup} - error ${r.dbName}`);
